@@ -16,7 +16,7 @@
   <main>
   <form id="entry">
     <input type="text" id="enterTask" data-testid="toDoTextInput" placeholder="Enter task here"> 
-    <button data-testid="submitButton" onClick="addTodo()">Submit</button>
+    <button data-testid="submitButton" onClick="addTodo(event)">Submit</button>
   </form>
   <table>
     <thead>
@@ -25,7 +25,7 @@
         <th>Status</th>
       </tr>
     </thead>
-    <tbody class="jobList">
+    <tbody class="jobList" >
     </tbody>
   </table>
   </main>
