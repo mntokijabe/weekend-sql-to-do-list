@@ -1,0 +1,77 @@
+:root {
+        --bs-body-bg: red
+}
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background: #daf7dd !important
+}
+
+main {
+    /* background-color: antiquewhite; */
+    width: auto;
+    margin: 2em;
+}
+header {
+    color:rgb(133, 12, 113);
+    text-align: center;
+
+}
+/* FORM */
+form{
+    display:auto; 
+    margin-left:5em;
+    margin-right: 5em;
+    margin-bottom: 3em;
+}
+input {
+    width: 75%;
+
+    height:50px;
+    text-wrap: wrap;
+}
+#enterTask {
+    margin-top: 3em;
+    background-color: rgb(201, 244, 230);
+
+}
+.completed {
+    text-decoration: line-through;
+    color:crimson;
+    background:#f57171    
+}
+#plain{
+    text-decoration: none;
+}
+/* TABLE */
+table {
+    text-align: left;
+    width: 100%;
+}
+table, th, td {
+    border-collapse: collapse;
+    height: 2.15em;
+  }
+  th, td {
+    padding: .5em;
+    min-width: 3.5em;
+  }
+tbody tr:nth-child(odd){ 
+  background: #fcfcfc;
+}
+tbody tr:nth-child(even){
+  background: #dcdcdc;
+}
+
+/* BUTTONS */
+button {
+    text-align: center;
+    width:auto;
+    /* height: 2em; */
+    font-size: .8em;
+    padding-top: .4em;
+    text-wrap: none;
+}
+
+.taskColumn {
+    width:60%;
+}

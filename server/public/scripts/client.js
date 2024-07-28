@@ -68,15 +68,15 @@ function jobComplete(finishId) {
 // Make DELETE function to remove job
 function removeJob(taskId) {
     const jobId = taskId
-    // Swal.fire({
-    //     title: "Are you sure you want to delete?",
-    //     showDenyButton: true,
-    //     showCancelButton: false,
-    //     confirmButtonText: "Yes, Delete",
-    //     denyButtonText: `No, Do Not Delete`
-    //   }).then((result) => {
-    //     if (result.isConfirmed) {
-    //       Swal.fire("Deleted", "", "success");
+    Swal.fire({
+        title: "Are you sure you want to delete?",
+        showDenyButton: true,
+        showCancelButton: false,
+        confirmButtonText: "Yes, Delete",
+        denyButtonText: `No, Do Not Delete`
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire("Deleted", "", "success");
         axios({
             method: 'DELETE',
             url: `/todos/${jobId}`
@@ -88,11 +88,11 @@ function removeJob(taskId) {
         .catch(error => {
             console.log('there was an error deleting the job', error)
         })
-//         }  // end if
-//         else if (result.isDenied) {
-//             Swal.fire("No Changes Made", "", "success");
-//         }
-//     });
+        }  // end if
+        else if (result.isDenied) {
+            Swal.fire("No Changes Made", "", "success");
+        }
+    });
 }    
 
 // Make function to DISPLAY the job list
@@ -106,21 +106,19 @@ function displayList(jobs){
         if(item.isComplete === true){
             complete = 'Done'
             tableSpot.innerHTML += `
-            <tr data-testid="toDoItem" class="completed">
-            <td>${item.text}</td>
-            <td>${complete}</td>
-            <td><button data-testid="completeButton" onClick="jobComplete(${item.id})">Mark Unfinished</button>
-            <td><button data-testid="deleteButton" onClick="removeJob(${item.id})">Delete</button>
-            `
+                <tr data-testid="toDoItem" class="completed">
+                <td><li>${item.text}</li></td>
+                <td><button type="button" class="btn btn-warning btn-sm" data-testid="completeButton" onClick="jobComplete(${item.id})">Mark Unfinished</button>
+                <td><button data-testid="deleteButton" onClick="removeJob(${item.id})">❌</button>
+                `
         }
         else{complete = "Unfinished"
         tableSpot.innerHTML += `
-        <tr data-testid="toDoItem" class="incomplete">
-        <td>${item.text}</td>
-        <td>${complete}</td>
-        <td><button data-testid="completeButton" onClick="jobComplete(${item.id})">Mark Complete</button>
-        <td><button data-testid="deleteButton" onClick="removeJob(${item.id})">Delete</button>
-        `
+            <tr data-testid="toDoItem" class="incomplete">
+            <td class="taskColumn"><li>${item.text}</li></td>
+            <td><button type="button" class="btn btn-success btn-sm" data-testid="completeButton" onClick="jobComplete(${item.id})">Mark Complete</button>
+            <td><button data-testid="deleteButton" class="btn-sm"onClick="removeJob(${item.id})">❌</button>
+            `
         }
     }
 }
